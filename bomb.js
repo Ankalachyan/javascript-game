@@ -99,6 +99,7 @@ class Bomb {
         for (const i in allEaterArr) {
             if (!(allEaterArr[i].x == x && allEaterArr[i].y == y)) continue;
             allEaterArr.splice(i, 1);
+            console.log("bomb");
         }
     }
 }
