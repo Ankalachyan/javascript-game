@@ -1,10 +1,7 @@
-class AllEater {
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
+class AllEater extends LivingCreature {
+    constructor(x, y, index){
+        super(x, y, index);
         this.energy = 10;
-        this.index = index;
-        this.directions = [];
     }
 
     getNewCoordinates() {
