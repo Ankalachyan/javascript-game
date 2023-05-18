@@ -1,6 +1,5 @@
 var matrix = [];
-var n = 60;
-var m = 60;
+
 
 
 function characters(number, character) {
@@ -24,22 +23,22 @@ var bombArr = [];
 
 function setup() {
 
-    for (let i = 0; i < n; i++) {
-        matrix.push([]);
-        for (let j = 0; j < m; j++) {
-            matrix[i].push(0)
-        }
-    }
+    // for (let i = 0; i < n; i++) {
+    //     matrix.push([]);
+    //     for (let j = 0; j < m; j++) {
+    //         matrix[i].push(0)
+    //     }
+    // }
     characters(400, 1)
     characters(200, 2)
     characters(200, 3)
     characters(150, 4)
     characters(20, 5)
-    frameRate(20);
-    noStroke()
-    createCanvas(matrix[0].length * side, matrix.length * side);
-    stroke(255);
-    background('#e8e8e8');
+    // frameRate(20);
+    // noStroke()
+    // createCanvas(matrix[0].length * side, matrix.length * side);
+    // stroke(255);
+    // background('#e8e8e8');
 
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
@@ -70,30 +69,30 @@ function setup() {
 
 function draw() {
 
-    for (var y = 0; y < matrix.length; y++) {
-        for (var x = 0; x < matrix[y].length; x++) {
+//     for (var y = 0; y < matrix.length; y++) {
+//         for (var x = 0; x < matrix[y].length; x++) {
 
-            if (matrix[y][x] == 1) {
-                fill("#42FF33");
-            }
-            else if (matrix[y][x] == 0) {
-                fill("#e8e8e8");
-            } else if (matrix[y][x] == 2) {
-                fill("#B533FF");
-            } else if (matrix[y][x] == 3) {
-                fill("#3352FF")
-            } else if (matrix[y][x] == 4) {
-                fill("#FF0CFB")
-            } else if (matrix[y][x] == 5) {
-                fill("grey")
-            } else if (matrix[y][x] == 10) {
-                fill("#C9C9C9")
-            }
-            rect(x * side, y * side, side, side, side);
+//             if (matrix[y][x] == 1) {
+//                 fill("#42FF33");
+//             }
+//             else if (matrix[y][x] == 0) {
+//                 fill("#e8e8e8");
+//             } else if (matrix[y][x] == 2) {
+//                 fill("#B533FF");
+//             } else if (matrix[y][x] == 3) {
+//                 fill("#3352FF")
+//             } else if (matrix[y][x] == 4) {
+//                 fill("#FF0CFB")
+//             } else if (matrix[y][x] == 5) {
+//                 fill("grey")
+//             } else if (matrix[y][x] == 10) {
+//                 fill("#C9C9C9")
+//             }
+//             rect(x * side, y * side, side, side, side);
 
 
-        }
-    }
+//         }
+//     }
     for (var i in grassArr) {
         grassArr[i].mul();
     }
