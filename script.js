@@ -93,20 +93,20 @@ function draw() {
 
 //         }
 //     }
-    for (var i in grassArr) {
-        grassArr[i].mul();
-    }
-    for (var i in grassEaterArr) {
-        grassEaterArr[i].eat();
-    }
-    for (var i in predatorArr) {
-        predatorArr[i].eat();
-    }
-    for (var i in allEaterArr) {
-        allEaterArr[i].eat();
-    }
-    for (var i in bombArr) {
-        bombArr[i].start();
-    }
+    // for (var i in grassArr) {
+    //     grassArr[i].mul();
+    // }
+    // for (var i in grassEaterArr) {
+    //     grassEaterArr[i].eat();
+    // }
+    // for (var i in predatorArr) {
+    //     predatorArr[i].eat();
+    // }
+    // for (var i in allEaterArr) {
+    //     allEaterArr[i].eat();
+    // }
+    // for (var i in bombArr) {
+    //     bombArr[i].start();
+    // }
 
 }
