@@ -1,5 +1,7 @@
 const LivingCreature = require("./livingCreature");
 
+let random = require("./random");
+
 module.exports = class AllEater extends LivingCreature {
     constructor(x, y, index){
         super(x, y, index);

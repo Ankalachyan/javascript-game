@@ -1,3 +1,4 @@
+let random = require("./random");
 module.exports = class Bomb {
     constructor(x, y) {
         this.x = x;

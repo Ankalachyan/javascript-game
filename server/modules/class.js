@@ -1,4 +1,5 @@
 const LivingCreature = require("./livingCreature");
+let random = require("./random");
 
 module.exports = class Grass extends LivingCreature {
     mul() {
