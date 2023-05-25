@@ -10,7 +10,8 @@ function setup() {
     stroke(255);
     background('#e8e8e8');
 }
-
+  socket.on("matrix", drawMatrix);
+  
 function drawMatrix(data) {
     matrix = data.matrix;
     for (var y = 0; y < matrix.length; y++) {
@@ -33,9 +34,6 @@ function drawMatrix(data) {
                 fill("#C9C9C9")
             }
             rect(x * side, y * side, side, side, side);
-
-
         }
     }
-    socket.on("matrix", drawMatrix);
 }
