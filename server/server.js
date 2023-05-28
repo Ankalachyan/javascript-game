@@ -4,12 +4,14 @@ grassEaterArr = [];
 predatorArr = [];
 allEaterArr = [];
 bombArr = [];
+waterArr = [];
 AllEater = require("./modules/allEater");
 Bomb = require("./modules/bomb");
 GrassEater = require("./modules/grassEater");
 LivingCreature = require("./modules/livingCreature");
 Predator = require("./modules/predator");
 Grass = require("./modules/class");
+Water = require("./modules/water");
 
 var app = express();
 var server = require('http').createServer(app);
@@ -27,7 +29,13 @@ server.listen(3000, function () {
 var n = 60;
 var m = 60;
 matrix = [];
-
+winterMultiply = 5
+function winter() {
+   winterMultiply = 6
+}
+function summer() {
+   winterMultiply = 4
+}
 function characters(number, character) {
    for (let q = 0; q < number; q++) {
       var x = Math.floor(Math.random() * n)
@@ -35,7 +43,6 @@ function characters(number, character) {
       if (matrix[x][y] == 0) {
          matrix[x][y] = character;
       }
-
    }
 }
 
@@ -52,6 +59,8 @@ function generateMatrix() {
    characters(200, 3)
    characters(150, 4)
    characters(20, 5)
+   characters(200, 11)
+
    return matrix;
 }
 function createObject() {
@@ -75,25 +84,21 @@ function createObject() {
          } else if (matrix[y][x] == 5) {
             var bomb = new Bomb(x, y, 5)
             bombArr.push(bomb)
+         }else if(matrix[y][x] == 11){
+            var wt = new Water(x, y, 11);
+            waterArr.push(wt)
          }
       }
-
    }
 }
-
 generateMatrix()
-createObject() 
+createObject()
 var cl = false;
 
-io.on("connection", function (socket) {
-   if (cl) {
-      setInterval(drawserverayin, 200);
-      cl = true;
-   }
-});
+
 function drawserverayin() {
    for (var i in grassArr) {
-      grassArr[i].mul();
+      grassArr[i].mul(winterMultiply);
    }
    for (var i in grassEaterArr) {
       grassEaterArr[i].eat();
@@ -106,12 +111,52 @@ function drawserverayin() {
    }
    for (var i in bombArr) {
       bombArr[i].start();
+   }for (var i in waterArr) {
+      waterArr[i].mul();
    }
 
+   var obj = {
+      grass: grassArr.length,
+      grasseater: grassEaterArr.length,
+      predator : predatorArr.length,
+      alleater : allEaterArr.length,
+      bomb : bombArr.length,
+      water : waterArr.length
+      }
    let sendData = {
-      matrix: matrix
+      matrix: matrix,
+      statistic : obj
    }
    io.sockets.emit("matrix", sendData)
 }
-setInterval(drawserverayin, 1000)
+
+let intervalID;
+speed = 1000
+
+createInterval()
+console.log(matrix);
+
+function createInterval() {
+   clearInterval(intervalID)
+   intervalID = setInterval(drawserverayin, speed);
+}
+//speedov petqa miacnel u ashxatacnel xaxy 
+
+io.on("connection", function (socket) {
+   if (cl) {
+      // setInterval(drawserverayin, 200);
+      cl = true;
+   }
+   socket.on("signal",winter)
+   socket.on("sign",summer)
+   socket.on("set",intervalSet)
+});
+// function set(set){
+//    if (set == 1000) {
+//    setInterval(drawserverayin, 1000)
+//    }else{
+//    setInterval(drawserverayin, 0)
+//    }
+// }
+
 
