@@ -7,10 +7,17 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: 500;
+    background-image: url("./background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 #button1 {
-    width: 120px;
     background-color: #e826ce; 
+}
+.btn{
+    width: 160px;
+    height: 50px;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -19,27 +26,97 @@ body{
     display: inline-block;
     font-size: 16px;
     margin: 0 30px;
-
-  }
-  .buttons{
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+}
+.textInfo{
+    font-size: 16px;
+    color: #686767;
+    letter-spacing: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: -2px 3px 2px #afaeae;
+    font-weight: 700;
+}
+.buttons{
     display: flex;
     justify-content: center;
-    margin: 60px 0;
-  }
+    margin-bottom: 20px;
+}
+span{
+  color: rgb(98, 98, 98);
+}
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.title h1{
+    color: #434243;
+    text-shadow:-10px 7px 2px #afaeae;
+    letter-spacing: 5px;
+    font-size: 50px;
+}
+.infoBox{
+    width: 100%;
+    height: 70px;
+    background-color: #f0f0ed00;
+    border: 1px solid #f6f5f29f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info{
+    margin-bottom: 30px;
+}
+.infoBox:hover{
+    background-color: #c4c4c300;
+    transform: translateY(-4px);
+}
+.right{
+    height: 65px;
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    border: 1px solid #f6f5f29f;
+}
+.left{
+    padding: 0 30px;
+    height: 65px;
+    border: 1px solid #f6f5f29f;
+    align-items: center;
+    display: flex;
+    width: 230px;
+}
+.btn:hover {
+    transform: translateY(-7px);
+}
+#button2:hover  {
+    box-shadow:0px 15px 20px #27808ea7;
+    background-color: #0495ab;
+}
+#stop:hover  {
+    box-shadow:0px 15px 20px #cb0404a8;
+    background-color: #bc0606; 
+}
+#start:hover  {
+    box-shadow:0px 15px 20px #03a410a2;
+    background-color:#079613;
+}
+#button1:hover{
+    background-color: #bd06a5; 
+    box-shadow: 0px 15px 20px #ca02af9f;
+}
 #button2 {
-    width: 120px;
     background-color: #3bd7ef;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 0 30px;
   }
 #defaultCanvas0{
-    display: flex;
-    justify-content: center;
+    position: relative;
+    left: 490px;
 }
 .box1{
     height: 40px;
@@ -59,28 +136,10 @@ body{
     align-items: center;
 }
 #stop{
-    width: 120px;
     background-color: #e40e0e; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 30px;
 }
 #start{
-    width: 120px;
     background-color: #26e836; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 30px;
 }
 .box2{
     height: 40px;
@@ -98,7 +157,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin: 60px 0;
+    margin: 35px 0;
 }
 .box3{
     height: 40px;

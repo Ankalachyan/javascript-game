@@ -8,6 +8,9 @@
 </head>
 
 <body>
+<div class="title">
+	<h1>JavaScript Game</h1>
+</div>
 	<div class="characters">
 		<div class="character">
 			<div class="box1"></div>
@@ -35,13 +38,75 @@
 		</div>
 	</div>
 	<div class="buttons">
-		<button id="button1">Summer</button>
-		<button id="button2">Winter</button>
-		<button id="stop">Stop</button>
-		<button id="start">Start</button>
+		<button class="btn" id="start">Start</button>
+		<button class="btn" id="stop">Stop</button>
+		<button class="btn" id="button1">Summer</button>
+		<button class="btn" id="button2">Winter</button>
 	</div>
-<p id="text"></p>
-
+	<div class="info">
+		<div class="infoBox">
+			<div class="right">
+				<div class="box1"></div>
+				<p>Grass</p>
+			</div>
+			<div class="center">
+				<p class="textInfo">Խոտ:բազմանում է դատարկ վանդակների վրա</p>
+			</div>
+			<div class="left">
+				<span class="count" id="grassNum">0</span>
+			</div>
+			</div>
+		<div class="infoBox">
+			<div class="right">
+				<div class="box2"></div>
+				<p>GrassEater</p>
+			</div>
+			<div class="center">
+				<p class="textInfo">Խոտակեր:Ուտում է խոտեր և բազմանում դրանց վրա</p>
+			</div>
+			<div class="left">
+				<span class="count" id="grassEaterNum">0</span>
+			</div>
+			</div>
+		<div class="infoBox">
+			<div class="right">
+				<div class="box5"></div>
+			<p>Alleater</p></div>
+			<div class="center">
+				<p class="textInfo">Ամեն-ինչ ուտող:ուտում է ցանկացած կերպար,բազմանում դրանց վրա</p>
+			</div>
+			<div class="left"><span class="count" id="allEaterNum">0</span></div>
+			
+		</div>
+		<div class="infoBox">
+			<div class="right">
+				<div class="box3"></div>
+				<p>Predator</p>
+			</div>
+			<div class="center">
+				<p class="textInfo">Գիշատիչ:ուտում է խոտակերներին և ապահովում խոտի աճը</p>
+			</div>
+			<div class="left"><span class="count" id="predatorNum">0</span></div>
+		</div>
+		<div class="infoBox">
+			<div class="right">
+				<div class="box4"></div>
+			<p>Bomb</p></div>
+			<div class="center">
+				<p class="textInfo">Արկեր:պատահականորեն պայթում են ոչնչացնելով շրջակա վանդակները</p>
+			</div>
+			<div class="left"><span class="count" id="bombNum">0</span></div>
+		</div>
+		<div class="infoBox">
+			<div class="right">
+			    <div class="box6"></div>
+			    <p>Water</p></div>
+				<div class="center">
+					<p class="textInfo">Ջուր:բազմանում է պատահականորեն և ոչնչանում եթե կողքին չկա խոտ</p>
+				</div>
+			<div class="left"><span class="count" id="waterNum">0</span></div>
+		</div>
+	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
 	<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>

@@ -1,25 +1,28 @@
-var side = 8;
+var side = 10;
 var socket = io();
-var n = 60;
-var m = 60;
+var n = 100;
+var m = 100;
 var array = ['#42FF33',"#B533FF","#B533FF","#FF0CFB"]
 let summerButton = document.getElementById("button1");
 let winterButton = document.getElementById("button2");
 let startButton = document.getElementById("start");
 let stopButton =  document.getElementById("stop");
 
+grassCount = document.getElementById('grassNum');
+grassEaterCount = document.getElementById('grassEaterNum');
+allEaterCount = document.getElementById('allEaterNum');
+predatorCount = document.getElementById('predatorNum');
+bombCount = document.getElementById('bombNum');
+waterCount = document.getElementById('waterNum');
 
-function x(set) {
-    if( set == 1000){
-         socket.emit("set",true)
-    }
-    else{
-        socket.emit("set",false)
-    }
+function stopClick(){
+    socket.emit("stopclick",true)
 }
-
-stopButton.addEventListener("click",x)
-startButton.addEventListener("click",x)
+function startClick(){
+    socket.emit("startclick",true)
+}
+stopButton.addEventListener("click",stopClick)
+startButton.addEventListener("click",startClick)
 function winter(){
     array[0]= "cyan"
     array[1] = '#481466'
@@ -44,13 +47,18 @@ function setup() {
     background('#e8e8e8');
 }
   socket.on("matrix", drawMatrix);
-  textElement =  document.getElementById("text");
   
-  function showHtml(data){
-    textElement.innerhtml = data.statistic
-  }
 function drawMatrix(data) {
-   
+socket.on("statistic", getGrassNum)
+
+    function getGrassNum() { 
+    grassCount.innerText = data.statistic.grass;
+    grassEaterCount.innerText = data.statistic.grasseater;
+    allEaterCount.innerText = data.statistic.predator;
+    predatorCount.innerText = data.statistic.alleater;
+    bombCount.innerText = data.statistic.bomb;
+    waterCount.innerText = data.statistic.water;
+}
     matrix = data.matrix;
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
