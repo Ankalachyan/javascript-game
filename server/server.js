@@ -35,7 +35,6 @@ waterMultiply = 5
 function winter() {
    winterMultiply = 6
    waterMultiply = 8
-
 }
 
 function summer() {
